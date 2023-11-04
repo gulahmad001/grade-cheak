@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Checker</title>
+</head>
+<body>
+    <h1>Grade Checker</h1>
+
+    <label for="percentage">Enter Percentage:</label>
+    <input type="number" id="percentage">
+    <button onclick="calculateGrade()">Check Grade</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateGrade() {
+            var percentage = parseFloat(document.getElementById("percentage").value);
+
+            if (isNaN(percentage) || percentage < 0 || percentage > 100) {
+                document.getElementById("result").innerHTML = "Invalid input. Please enter a valid percentage.";
+            } else {
+                var grade = "";
+
+                if (percentage >= 90) {
+                    grade = "A+";
+                } else if (percentage >= 80) {
+                    grade = "A";
+                } else if (percentage >= 70) {
+                    grade = "B";
+                } else if (percentage >= 60) {
+                    grade = "C";
+                } else if (percentage >= 50) {
+                    grade = "D";
+                } else {
+                    grade = "F";
+                }
+
+                document.getElementById("result").innerHTML = "Grade: " + grade;
+            }
+        }
+    </script>
+</body>
+</html>
